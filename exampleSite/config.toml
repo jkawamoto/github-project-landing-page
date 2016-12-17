@@ -1,24 +1,32 @@
 baseurl = "http://swiftline.github.io"
 languageCode = "en-us"
 title = "Swiftline"
+theme = "github-project-landing-page"
 
 [params]
-    description = "Amazing project."
-    author_url = "http://nsomar.com"
-    project_url = "http://github.com/swiftline/swiftline"
-    project_documentation = "http://swiftline.github.io/docs"
-    github_project_name = "swiftline"
-    github_user_name = "swiftline"
+  SubTitle = "Amazing project."
+  Description = """\
+    This discription will be used in meta description.\
+  """
+  AuthorName = "Junpei Kawamoto"
+  AuthorURL = "https://www.jkawamoto.info/"
+  GithubURL = "https://github.com/jkawamoto/github-project-landing-page"
+  ProfilePicture = "img/icon.png"
 
-    first_color="#f8f8f8"
-    first_border_color="#e7e7e7"
-    first_text_color="#333"
+  GithubRepo = "github-project-landing-page"
+  GithubOrg = "jkawamoto"
 
-    second_color="white"
-    second_text_color="#333"
+  googleAnalytics = ""
 
-    header_color="#f8f8f8"
-    header_text_color="rgb(51, 51, 51)"
+  first_color="#f8f8f8"
+  first_border_color="#e7e7e7"
+  first_text_color="#333"
 
-    header_link_color="#777"
-    header_link_hover_color="rgb(51, 51, 51)"
+  second_color="white"
+  second_text_color="#333"
+
+  header_color="#f8f8f8"
+  header_text_color="rgb(51, 51, 51)"
+
+  header_link_color="#777"
+  header_link_hover_color="rgb(51, 51, 51)"
