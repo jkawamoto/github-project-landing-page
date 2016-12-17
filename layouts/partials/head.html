@@ -1,4 +1,4 @@
-<head>
+<head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,35 +7,49 @@
   <base href="{{ .Site.BaseURL }}">
 
   {{ if isset .Site.Params "SubTitle" }}
-  {{ $title := add (add .Title ": ") .Site.Params.SubTitle }}
-  {{ $site_title := add (add .Site.Title ": ") .Site.Params.SubTitle }}
+  <title>{{ .Title }}: {{ .Site.Params.SubTitle}}</title>
   {{ else }}
-  {{ $title := .Title }}
-  {{ $site_title := .Site.Title }}
+  <title>{{ .Title }}</title>
   {{ end }}
 
-  {{ if isset .Params "description" }}
-  {{ $description := .Params.description }}
-  {{ else }}
-  {{ $description := .Site.Params.Description }}
-  {{ end }}
-
-  <title>{{ $title }}</title>
   {{ with .Site.Params.AuthorName }}
   <meta name="author" content="{{ . }}"/>
   {{ end }}
-  <meta name="description" content="{{ $description }}"/>
+
+  {{ if isset .Params "description" }}
+  <meta name="description" content="{{ .Params.description }}"/>
+  {{ else }}
+  <meta name="description" content="{{ .Site.Params.Description }}"/>
+  {{ end }}
 
   <meta property="og:type" content="article"/>
-  <meta property="og:title" content="{{ $title }}"/>
-  <meta property="og:description" content="{{ $description }}"/>
-  <meta property="og:site_name"  content="{{ $site_title }}"/>
+  {{ if isset .Site.Params "SubTitle" }}
+  <meta property="og:title" content="{{ .Title }}: {{ .Site.Params.SubTitle}}"/>
+  {{ else }}
+  <meta property="og:title" content="{{ .Title }}"/>
+  {{ end }}
+
+  {{ if isset .Params "description" }}
+  <meta property="og:description" content="{{ .Params.description }}"/>
+  {{ else }}
+  <meta property="og:description" content="{{ .Site.Params.Description }}"/>
+  {{ end }}
+
+  {{ if isset .Site.Params "SubTitle" }}
+  <meta property="og:site_name"  content="{{ .Site.Title }}: {{ .Site.Params.SubTitle }}"/>
+  {{ else }}
+  <meta property="og:site_name"  content="{{ .Site.Title }}"/>
+  {{ end }}
   {{ if isset .Site.Params "Image" }}
   <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.Image }}"/>
   {{ end }}
 
   {{ if isset .Site.Params "Twitter" }}
-  <meta name="twitter:card" content="{{ $description }}"/>
+    {{ if isset .Params "description" }}
+    <meta name="twitter:card" content="{{ .Params.description }}"/>
+    {{ else }}
+    <meta name="twitter:card" content="{{ .Site.Params.Description }}"/>
+    {{ end }}
   <meta name="twitter:site" content="{{ .Site.Params.Twitter }}"/>
   {{ end }}
 
@@ -43,8 +57,6 @@
   <link href="css/bootstrap.min.css" rel="stylesheet"/>
 
   {{ "<!-- Custom CSS -->" | safeHTML }}
-  <link href="css/remodal.css" rel="stylesheet"/>
-  <link href="css/remodal-default-theme.css" rel="stylesheet"/>
   <link href="css/landing-page.css" rel="stylesheet"/>
 
   {{ "<!-- Custom Fonts -->" | safeHTML }}
