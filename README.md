@@ -1,13 +1,10 @@
 # Github project landing page
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
 Github landing page is a theme for [Hugo](http://gohugo.io) to create landing
 pages for github projects. This theme is originally made by
-[Omar Abdelhafith](https://github.com/oarrabi), and licensed under the MIT
+[Omar Abdelhafith](https://github.com/nsomar), and licensed under the MIT
 license. See [LICENSE](LICENSE.md) for more information.
-
-
-## Demo
-A demo site is provided by [Swiftline](http://swiftline.github.io).
-
 
 ## Screenshot
 ![screenshot](https://raw.githubusercontent.com/jkawamoto/github-project-landing-page/master/images/screenshot.png)
@@ -39,6 +36,26 @@ Project sub title appears after project name
 [params]
   GithubRepo = "github-project-landing-page"
   GithubOrg = "jkawamoto"
+```
+
+Syntax highlighting is supported by [highlight.js](https://highlightjs.org/),
+- `HighlightStyle` URL of a CSS file
+- `HighlightLanguages` list of languages to be loaded
+
+```toml
+[params]
+  HighlightStyle = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/agate.min.css"
+  HighlightLanguages = ["yaml"]
+```
+
+Several sizes of favicon are supported
+
+```toml
+[params]
+  Favicon = "img/favicon.ico"
+  Icon16 = "img/icon_16.png"
+  Icon32 = "img/icon_32.png"
+  Icon96 = "img/icon_96.png"
 ```
 
 Theme colors

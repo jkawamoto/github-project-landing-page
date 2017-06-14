@@ -1,0 +1,18 @@
+{{ if and (isset .Site.Params "googleadsenseclient") (isset .Site.Params "googleadsenseslot") }}
+<div class="container">
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:336px;height:280px"
+       data-ad-client="{{ .Site.Params.GoogleAdSenseClient }}"
+       data-ad-slot="{{ .Site.Params.GoogleAdSenseSlot }}"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:336px;height:280px"
+       data-ad-client="{{ .Site.Params.GoogleAdSenseClient }}"
+       data-ad-slot="{{ .Site.Params.GoogleAdSenseSlot }}"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+{{ end }}

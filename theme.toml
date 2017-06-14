@@ -5,10 +5,11 @@ description = "An easy to use landing page theme for github hosted project."
 homepage = "https://github.com/jkawamoto/github-project-landing-page"
 tags = ["company", "products", "landing page", "opensource"]
 features = ["github", "images" ]
-min_version= 0.1
+min_version= 0.18
 
 [author]
      name = "Junpei Kawamoto"
+     homepage = "https://www.jkawamoto.info/"
 
 [original]
     author =  "Omar Abdelhafith"
