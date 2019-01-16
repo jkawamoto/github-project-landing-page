@@ -1,60 +1,63 @@
 <head prefix="og: http://ogp.me/ns#">
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <base href="{{ .Site.BaseURL }}"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <base href="{{ .Site.BaseURL }}" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   {{ .Hugo.Generator }}
   <title>{{ .Title }}: {{ .Site.Params.SubTitle }}</title>
 
-  <meta name="author" content="{{ with .Site.Params.AuthorName }}{{ . }}{{ end }}"/>
+  <meta name="author" content="{{ with .Site.Params.AuthorName }}{{ . }}{{ end }}" />
   {{ if isset .Params "description" }}
-	<meta name="description" content="{{ .Params.description }}"/>
-	{{ else }}
-	<meta name="description" content="{{ with .Site.Params.Description }}{{ . }}{{ end }}"/>
-	{{ end }}
+  <meta name="description" content="{{ .Params.description }}" />
+  {{ else }}
+  <meta name="description" content="{{ with .Site.Params.Description }}{{ . }}{{ end }}" />
+  {{ end }}
 
   <meta property="og:type" content="article" />
-	<meta property="og:title" content="{{ .Title }}: {{ .Site.Params.SubTitle }}" />
-	{{ if isset .Params "description" }}
-	<meta name="og:description" content="{{ .Params.description }}" />
-	{{ else }}
-	<meta name="og:description" content="{{ with .Site.Params.Description }}{{ . }}{{ end }}" />
-	{{ end }}
-	<meta property="og:image" content="{{ .Site.BaseURL }}img/image.png" />
-	<meta property="og:site_name"  content="{{ .Title }}: {{ .Site.Params.SubTitle }}" />
-
-	{{ if isset .Params "description" }}
-	<meta name="twitter:card" content="{{ .Params.description }}" />
-	{{ else }}
-	<meta name="twitter:card" content="{{ with .Site.Params.Description }}{{ . }}{{ end }}" />
-	{{ end }}
-	<meta name="twitter:site" content="@junkawamoto" />
+  <meta property="og:url" content="{{ .Permalink }}"/>
+  <meta property="og:title" content="{{ .Title }}: {{ .Site.Params.SubTitle }}" />
+  {{ if isset .Params "description" }}
+  <meta name="og:description" content="{{ .Params.description }}" />
+  {{ else }}
+  <meta name="og:description" content="{{ with .Site.Params.Description }}{{ . }}{{ end }}" />
+  {{ end }}
+  <meta property="og:site_name" content="{{ .Title }}: {{ .Site.Params.SubTitle }}" />
+  <meta property="og:image" content="{{ .Site.BaseURL }}img/image.png" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="{{ .Site.Params.Twitter }}" />
 
   {{ $base := .Site.BaseURL }}
   {{ with .Site.Params.Favicon }}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ $base }}{{ . }}"/>
+  <link rel="icon" href="{{ $base }}{{ . }}" />
   {{ end }}
   {{ with .Site.Params.Icon16 }}
-  <link rel="icon" type="image/png" href="{{ $base }}{{ . }}" sizes="16x16"/>
+  <link rel="icon" type="image/png" href="{{ $base }}{{ . }}" sizes="16x16" />
   {{ end }}
   {{ with .Site.Params.Icon32 }}
-  <link rel="icon" type="image/png" href="{{ $base }}{{ . }}" sizes="32x32"/>
+  <link rel="icon" type="image/png" href="{{ $base }}{{ . }}" sizes="32x32" />
   {{ end }}
   {{ with .Site.Params.Icon96 }}
-  <link rel="icon" type="image/png" href="{{ $base }}{{ . }}" sizes="96x96"/>
+  <link rel="icon" type="image/png" href="{{ $base }}{{ . }}" sizes="96x96" />
+  {{ end }}
+  {{ with .Site.Params.Icon152 }}
+  <link rel="apple-touch-icon" href="{{ $base }}{{ . }}" sizes="152x152" />
+  {{ end }}
+  {{ with .Site.Params.Icon152 }}
+  <link rel="icon" type="image/png" href="{{ $base }}{{ . }}" sizes="192x192" />
   {{ end }}
 
   <!-- Bootstrap Core CSS -->
-  <link href="{{ .Site.BaseURL }}css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="{{ .Site.BaseURL }}css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Custom CSS -->
-  <link href="{{ .Site.BaseURL }}css/landing-page.css" rel="stylesheet"/>
+  <link href="{{ .Site.BaseURL }}css/landing-page.css" rel="stylesheet" />
 
   <!-- Custom Fonts -->
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
 
   <style>
-  {{ printf "%v" (partial "template.css" . ) | safeCSS  }}
+    {{ printf "%v" (partial "template.css".) | safeCSS }}
   </style>
-
 </head>
